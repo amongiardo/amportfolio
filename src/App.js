@@ -1,25 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/navbar";
+import Card from "./components/card";
+import React, {Component} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// function App() {
+class App extends Component {
+    render() {
+        return (
+            <>
+                <Navbar/>
+                <div className='container'>
+                    <h1>Cosa vuoi ordinare?</h1>
+                    <hr/>
+                    <div className='row'>
+                        <Card/>
+                        <Card/>
+                        <Card/>
+                        <Card/>
+                        <Card/>
+                        <Card/>
+
+                    </div>
+                </div>
+            </>
+        );
+    }
 }
 
 export default App;
