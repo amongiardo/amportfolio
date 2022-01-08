@@ -9,6 +9,7 @@ import dynamite from './images/dynamite.png'
 import philadelphia from './images/philadelphia.png'
 import rainbow from './images/rainbow.png'
 import shrimp from './images/shrimp.png'
+import card from "./components/card";
 
 // function App() {
 class App extends Component {
@@ -23,6 +24,13 @@ class App extends Component {
         ]
     }
 
+    handleDelete = cardId => {
+        // const updateCards = this.state.cards.filter(card => card.id != cardId);
+        // this.setState({cards : updateCards});
+        // oppure dando lo stesso nome alla costante
+        const cards = this.state.cards.filter(card => card.id !== cardId);
+        this.setState({cards})
+    }
     render() {
         return (
             <>
@@ -35,9 +43,8 @@ class App extends Component {
                         {this.state.cards.map(card => (
                             <Card
                                 key={card.id}
-                                immagine={card.immagine}
-                                titolo={card.titolo}
-                                prezzo={card.prezzo}
+                                onDelete = {this.handleDelete}
+                                card={card}
                             />
                         ))
                         }
