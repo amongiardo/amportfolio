@@ -12,6 +12,17 @@ import shrimp from './images/shrimp.png'
 
 // function App() {
 class App extends Component {
+    state = {
+        cards: [
+            {id: 0, immagine: california, titolo: "California", prezzo: 1.99},
+            {id: 1, immagine: dragon, titolo: "Dragon", prezzo: 1.99},
+            {id: 2, immagine: dynamite, titolo: "Dynamite", prezzo: 1.99},
+            {id: 3, immagine: philadelphia, titolo: "Philadelphia", prezzo: 1.99},
+            {id: 4, immagine: rainbow, titolo: "Rainbow", prezzo: 1.99},
+            {id: 5, immagine: shrimp, titolo: "Shrimp", prezzo: 1.99},
+        ]
+    }
+
     render() {
         return (
             <>
@@ -20,30 +31,16 @@ class App extends Component {
                     <h1>Cosa vuoi ordinare?</h1>
                     <hr/>
                     <div className='row'>
-                        <Card
-                        immagine={california}
-                        titolo="Califonia"
-                        prezzo={1.99}/>
-                        <Card
-                            immagine={dragon}
-                            titolo="Dragon"
-                            prezzo={1.99}/>
-                        <Card
-                            immagine={dynamite}
-                            titolo="Dynamite"
-                            prezzo={1.99}/>
-                        <Card
-                            immagine={philadelphia}
-                            titolo="Philadelphia"
-                            prezzo={1.99}/>
-                        <Card
-                            immagine={rainbow}
-                            titolo="Rainbow"
-                            prezzo={1.99}/>
-                        <Card
-                            immagine={shrimp}
-                            titolo="Shrimp"
-                            prezzo={1.99}/>
+                        {/*uso il map di javascript*/}
+                        {this.state.cards.map(card => (
+                            <Card
+                                key={card.id}
+                                immagine={card.immagine}
+                                titolo={card.titolo}
+                                prezzo={card.prezzo}
+                            />
+                        ))
+                        }
                     </div>
                 </div>
             </>
